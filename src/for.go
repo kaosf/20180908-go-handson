@@ -3,9 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	i := 1
-	for {
-		fmt.Print(i)
-		i++
+	var abc []string
+	abc = []string{"a", "b", "c"}
+
+	for i, v := range abc {
+		fmt.Println(i, v)
+	}
+	fmt.Println()
+
+	for _, v := range abc {
+		fmt.Println(v)
+	}
+	fmt.Println()
+
+	for i := range abc {
+		fmt.Println(i)
 	}
 }

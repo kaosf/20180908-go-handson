@@ -10,7 +10,8 @@ func main() {
 	filename := "example.txt"
 	f, err := os.Open(filename)
 	if err != nil {
-		return
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
 	defer f.Close()
 	scan := bufio.NewScanner(f)
@@ -19,6 +20,7 @@ func main() {
 		fmt.Println(text)
 	}
 	if err := scan.Err(); err != nil {
-		return
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
 }

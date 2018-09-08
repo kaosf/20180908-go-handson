@@ -16,6 +16,11 @@ func main() {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+
+	output(filename)
+}
+
+func output(filename string) {
 	f, err := os.Open(filename)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)

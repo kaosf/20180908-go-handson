@@ -12,6 +12,10 @@ func main() {
 		os.Exit(1)
 	}
 	filename := os.Args[1]
+	if _, err := os.Stat(filename); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
 	f, err := os.Open(filename)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)

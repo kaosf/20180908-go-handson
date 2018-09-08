@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	v := "GoLang"
-	if v == "golang" {
+	if v := "GoLang"; v == "golang" {
 		fmt.Println("○")
 	} else if v == "GOLANG" {
 		fmt.Println("△")
@@ -12,5 +11,5 @@ func main() {
 		fmt.Println("☓")
 	}
 
-	fmt.Println(v)
+	// fmt.Println(v)
 }

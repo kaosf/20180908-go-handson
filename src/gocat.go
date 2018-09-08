@@ -17,14 +17,16 @@ func main() {
 		os.Exit(1)
 	}
 
-	output(filename)
-}
-
-func output(filename string) {
-	f, err := os.Open(filename)
-	if err != nil {
+	if err := output(filename); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
+	}
+}
+
+func output(filename string) error {
+	f, err := os.Open(filename)
+	if err != nil {
+		return err
 	}
 	defer f.Close()
 	scan := bufio.NewScanner(f)
@@ -33,7 +35,7 @@ func output(filename string) {
 		fmt.Println(text)
 	}
 	if err := scan.Err(); err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+		return err
 	}
+	return nil
 }

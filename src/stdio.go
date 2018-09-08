@@ -1,12 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	fmt.Print("入力は？>")
-	var ans string
+	fmt.Print("golang ")
+	fmt.Print("2018\n")
 
-	fmt.Scanln(&ans)
+	fmt.Printf("%s %d\n", "golang", 2018)
 
-	fmt.Printf("入力は %s です\n", ans)
+	fmt.Println("golang", "2018")
+
+	fmt.Fprintln(os.Stderr, "golang", "2018")
+
+	s := fmt.Sprintf("%s %d\n", "golang", 2018)
+	fmt.Println(s)
 }

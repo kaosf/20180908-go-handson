@@ -7,7 +7,10 @@ import (
 )
 
 func main() {
-	fmt.Println(os.Args, len(os.Args))
+	if len(os.Args) != 2 {
+		fmt.Fprintln(os.Stderr, "invalid args")
+		os.Exit(1)
+	}
 	filename := os.Args[1]
 	f, err := os.Open(filename)
 	if err != nil {

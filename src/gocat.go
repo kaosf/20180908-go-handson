@@ -8,10 +8,17 @@ import (
 
 func main() {
 	filename := "example.txt"
-	f, _ := os.Open(filename)
+	f, err := os.Open(filename)
+	if err != nil {
+		return
+	}
+	defer f.Close()
 	scan := bufio.NewScanner(f)
 	for scan.Scan() {
 		text := scan.Text()
 		fmt.Println(text)
+	}
+	if err := scan.Err(); err != nil {
+		return
 	}
 }

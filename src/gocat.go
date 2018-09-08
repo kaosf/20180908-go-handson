@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	filename := "example.txt"
+	fmt.Println(os.Args, len(os.Args))
+	filename := os.Args[1]
 	f, err := os.Open(filename)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
